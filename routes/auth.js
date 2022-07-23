@@ -17,6 +17,25 @@ router.get(
   })
 );
 
+router.get("/github", passport.authenticate("github", { scope: ["profile"] }));
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    successRedirect: "/login/success",
+    failureRedirect: "/login/failed",
+  })
+);
+
+router.get("/facebook", passport.authenticate("facebook", { scope: ["profile"] }));
+
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/login/success",
+    failureRedirect: "/login/failed",
+  })
+);
 // auth/current_user
 // get
 router.get("/current_user", ensureAuth, (req, res) => {

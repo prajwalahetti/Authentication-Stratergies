@@ -8,9 +8,53 @@ import {
   AUTH_ERROR,
   LOAD_USER,
 } from "./types";
-export const login = () => (dispatch) => {
+export const googlelogin = () => (dispatch) => {
   try {
     window.open(`${process.env.REACT_APP_SERVER_URL}/auth/google`, "_self");
+    dispatch({
+      type: LOGIN_SUCCESS,
+    });
+   
+   
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: LOGIN_FAIL,
+    }); 
+    dispatch(setAlert("login fail", "danger"))
+
+  }
+};
+export const githublogin = () => (dispatch) => {
+  try {
+    window.open(`${process.env.REACT_APP_SERVER_URL}/auth/github`, "_self");
+    dispatch({
+      type: LOGIN_SUCCESS,
+    });
+   
+   
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: LOGIN_FAIL,
+    });
+    dispatch(setAlert("login fail", "danger"))
+
+  }
+};
+export const facebooklogin = () => (dispatch) => {
+  try {
+    window.open(`${process.env.REACT_APP_SERVER_URL}/auth/facebook`, "_self");
     dispatch({
       type: LOGIN_SUCCESS,
     });
