@@ -5,6 +5,7 @@
 
   .hide-sm {
     display: none;
+    
   }
 
   /* Text Styles */
@@ -70,7 +71,9 @@
     padding: 0.3rem 0.4rem;
   }
 }
-
+.hide-sm{
+  font-weight: bold;
+}
 .alert {
   padding: 0.8rem;
   margin: 1rem 0;
@@ -121,7 +124,7 @@
   margin: auto;
   overflow: hidden;
   margin-top: 6vh;
-  border:1px solid black;
+  border:0px solid black;
   
   height: 94vh;
   
@@ -129,7 +132,7 @@
 .navbar {
   display: block;
   text-align: center;
-  height: 6vh;
+  height: 7vh;
   background-color: 		#FFA500;
   color:#333
 }
@@ -183,6 +186,14 @@ div.githublogo {
 }
 div.facebooklogo {
 
+  height: 40px;
+  width: 40px;
+ 
+  background-image: url(https://cdn-icons-png.flaticon.com/512/5968/5968764.png);
+  background-size: contain;
+  display:inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
  background-size: contain;
  
   display:inline-block;

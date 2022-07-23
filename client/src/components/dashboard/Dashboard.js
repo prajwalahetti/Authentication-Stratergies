@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const Dashboard = ({ auth: { user } }) => {
   return (
     <div className="container">
-     Welcome
+     <h3>Welcome</h3>
       <h1>{user.displayName}</h1>
     </div>
   );

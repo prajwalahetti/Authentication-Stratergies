@@ -1,11 +1,11 @@
-const GoogleStratergy = require("passport-google-oauth20").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const GithubStrategy=require("passport-github2").Strategy;
 const FacebookStrategy=require("passport-facebook").Strategy;
 module.exports = function (passport) {
   passport.use(
-    new GoogleStratergy(
+    new GoogleStrategy(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
