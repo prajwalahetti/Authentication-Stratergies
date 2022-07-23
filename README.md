@@ -1,4 +1,5 @@
-# google-oauth-20
+# Authentication Strategies
+
 
 Simple google-oauth-2.0 Boiler Plate for MERN project
 
