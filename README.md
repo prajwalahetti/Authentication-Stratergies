@@ -1,7 +1,7 @@
 # Authentication Strategies
 
 
-Simple google-oauth-2.0 Boiler Plate for MERN project
+Simple passport-google-oauth20,passport-github2,passport-facebook Boiler Plate for MERN project
 
 create .env file in config directory at server side
  PORT=
