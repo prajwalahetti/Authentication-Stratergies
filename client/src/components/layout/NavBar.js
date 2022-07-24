@@ -38,7 +38,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to="/"><span className="hide-sm">Home</span></Link>
       </li>
       <li>
-        <Link to="/login"><span className="hide-sm">Sign Up/Login</span></Link>
+        <Link to="/login"><span className="hide-sm">SignUp/SignIn</span></Link>
       </li>
       
     </ul>

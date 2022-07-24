@@ -81,7 +81,7 @@ module.exports = function (passport) {
         try {
           let user = await User.findOne({ authId: profile.id });
           if (user) {
-            console.log(profile);
+           
             console.log("old user");
             done(null, user);
           } else {

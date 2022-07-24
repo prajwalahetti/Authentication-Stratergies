@@ -120,6 +120,13 @@
   border:1px solid black;
   
 }
+.logincontainer {
+
+  margin: 2rem;
+  padding: 2rem;
+  border:1px solid black;
+  
+}
 .maincontainer {
   margin: auto;
   overflow: hidden;
@@ -133,7 +140,7 @@
   display: block;
   text-align: center;
   height: 7vh;
-  background-color: 		#FFA500;
+  background-color: 		#FF8C00;
   color:#333
 }
 .navbar ul {
@@ -155,7 +162,7 @@
   background-color: 	#FFA500;
   padding: 10px;
 
-border-radius: 20px;
+border-radius: 50%;
 
  
 }

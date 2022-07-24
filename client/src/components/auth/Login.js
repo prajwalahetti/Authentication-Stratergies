@@ -15,32 +15,27 @@ const Login = ({ setAlert, googlelogin,githublogin,facebooklogin }) => {
   }
   return (
     <div className="container" >
-    <div >
-      <h1>Strategies available for SignIn/SignUp</h1>
-    <div style={{marginBottom:"2rem",marginTop:"2rem"}}>
+       <div style={{marginBottom:"2rem"}}>
+       <h3>SignIn/SignUp using </h3>
+       </div>
+    <div style={{ display:"flex",justifyContent:"center"}}>
+    <div style={{display:"flex",justifyContent:"space-evenly",width:"18rem"}}>
     <button  onClick={googleAuth} className="button">
-      {" "}
       <div className="googlelogo"></div>
-      
-      <div className="sign-in-text">Sign in with Google</div>
     </button>
-    </div>
-   <div style={{marginBottom:"2rem"}}>
    <button onClick={githubAuth} className="button">
-      {" "}
-      <div className="githublogo"></div>
-      <div className="sign-in-text">Sign in with Github</div>
+     <div className="githublogo"></div>
     </button>
-   </div>
-   <div>
+  
    <button onClick={facebookAuth} className="button">
-      {" "}
-      <div className="facebooklogo">
-      </div>
-      <div className="sign-in-text">Sign in with Facebook</div>
+     <div className="facebooklogo"></div>
     </button>
-   </div>
     </div>
+
+    </div>
+    
+  
+    
   </div>
   );
 };
