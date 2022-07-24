@@ -14,12 +14,15 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import NavBar from "./components/layout/NavBar";
 const App = () => {
 
+
   useEffect(() => {
-   const fetchUser=()=>{
-    store.dispatch(loadUser());
-   }
-   fetchUser();
-  },[]);
+    const fetchUser=()=>{
+      store.dispatch(loadUser());
+     }
+    return () => {
+      fetchUser();
+    };
+  }, []);
   return (
     <Provider store={store}>
       <BrowserRouter>
