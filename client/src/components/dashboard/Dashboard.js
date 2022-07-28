@@ -7,8 +7,7 @@ const Dashboard = ({ auth: { user } }) => {
     <div className="container">
       <h3>Welcome</h3>
       <h1>{user.displayName}</h1>
-      <h3>{user.googleId}</h3>
-      <h3>{user.githubId}</h3>
+   
       <h3>{user.emailId}</h3>
     </div>
   );

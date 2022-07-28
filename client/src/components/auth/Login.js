@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { googlelogin, githublogin, facebooklogin } from "../../actions/auth";
-
+import { googlelogin, githublogin  } from "../../actions/auth";
+//import {facebooklogin} from "../../actions/auth";
 const Login = ({ setAlert, googlelogin, githublogin, facebooklogin }) => {
   const googleAuth = () => {
     googlelogin();
@@ -10,9 +10,9 @@ const Login = ({ setAlert, googlelogin, githublogin, facebooklogin }) => {
   const githubAuth = () => {
     githublogin();
   };
-  const facebookAuth = () => {
-    facebooklogin();
-  };
+  // const facebookAuth = () => {
+  //   facebooklogin();
+  // };
   return (
     <div className="container">
       <div style={{ marginBottom: "2rem" }}>
@@ -33,9 +33,9 @@ const Login = ({ setAlert, googlelogin, githublogin, facebooklogin }) => {
             <div className="githublogo"></div>
           </button>
 
-          <button onClick={facebookAuth} className="button">
+          {/* <button onClick={facebookAuth} className="button">
             <div className="facebooklogo"></div>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
@@ -44,9 +44,12 @@ const Login = ({ setAlert, googlelogin, githublogin, facebooklogin }) => {
 Login.propTypes = {
   googlelogin: PropTypes.func.isRequired,
   githublogin: PropTypes.func.isRequired,
-  facebooklogin: PropTypes.func.isRequired,
+ // facebooklogin: PropTypes.func.isRequired,
 };
 
-export default connect(null, { googlelogin, githublogin, facebooklogin })(
+export default connect(null, { googlelogin, githublogin })(
   Login
 );
+// export default connect(null, { googlelogin, githublogin, facebooklogin })(
+//   Login
+// );

@@ -46,25 +46,27 @@ export const githublogin = () => (dispatch) => {
     dispatch(setAlert("login fail", "danger"));
   }
 };
-export const facebooklogin = () => (dispatch) => {
-  try {
-    window.open(`${process.env.REACT_APP_SERVER_URL}/auth/facebook`, "_self");
-    dispatch({
-      type: LOGIN_SUCCESS,
-    });
-  } catch (err) {
-    const errors = err.response.data.errors;
 
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-    }
+// export const facebooklogin = () => (dispatch) => {
+//   try {
+//     window.open(`${process.env.REACT_APP_SERVER_URL}/auth/facebook`, "_self");
+//     dispatch({
+//       type: LOGIN_SUCCESS,
+//     });
+//   } catch (err) {
+//     const errors = err.response.data.errors;
 
-    dispatch({
-      type: LOGIN_FAIL,
-    });
-    dispatch(setAlert("login fail", "danger"));
-  }
-};
+//     if (errors) {
+//       errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+//     }
+
+//     dispatch({
+//       type: LOGIN_FAIL,
+//     });
+//     dispatch(setAlert("login fail", "danger"));
+//   }
+// };
+
 export const logout = () => (dispatch) => {
   try {
     window.open(`${process.env.REACT_APP_SERVER_URL}/auth/logout`, "_self");
