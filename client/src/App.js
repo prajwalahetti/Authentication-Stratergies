@@ -26,6 +26,7 @@ const App = () => {
       <BrowserRouter>
         <Alert />
         <NavBar />
+
         <div className="maincontainer">
           <Routes>
             <Route path="/" element={<Landing />} />

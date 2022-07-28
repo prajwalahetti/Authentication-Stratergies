@@ -71,11 +71,18 @@
   font-weight: bold;
 }
 .alert {
-  padding: 0.8rem;
-  margin: 1rem 0;
+  padding: 0.6rem;
+
+  margin-top: 7px;
   opacity: 0.9;
   background: var(--light-color);
   color: #333;
+}
+.alert-wrapper {
+  position: fixed;
+  top: 12vh;
+  right: 3rem;
+  display: inline-block;
 }
 .alert-primary {
   background: var(--primary-color);
@@ -102,12 +109,7 @@
   color: #333;
   border: #ccc solid 1px;
 }
-.alert-wrapper {
-  position: fixed;
-  top: 4rem;
-  right: 2rem;
-  display: inline-block;
-}
+
 .container {
   margin: 2rem;
   padding: 2rem;
@@ -121,12 +123,12 @@
   border: 1px solid black;
 }
 .maincontainer {
-  margin: auto;
+  margin-top: 7vh;
   overflow: hidden;
-  margin-top: 6vh;
+
   border: 0px solid black;
 
-  height: 94vh;
+  height: 93vh;
 }
 .navbar {
   display: block;

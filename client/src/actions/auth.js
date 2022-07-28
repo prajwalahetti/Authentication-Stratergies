@@ -11,9 +11,11 @@ import {
 export const googlelogin = () => (dispatch) => {
   try {
     window.open(`${process.env.REACT_APP_SERVER_URL}/auth/google`, "_self");
+
     dispatch({
       type: LOGIN_SUCCESS,
     });
+    dispatch(setAlert("login success", "success"));
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -33,6 +35,7 @@ export const githublogin = () => (dispatch) => {
     dispatch({
       type: LOGIN_SUCCESS,
     });
+    dispatch(setAlert("login success", "success"));
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -73,6 +76,7 @@ export const logout = () => (dispatch) => {
     dispatch({
       type: LOGOUT,
     });
+    dispatch(setAlert("logout success", "light"));
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -83,6 +87,7 @@ export const logout = () => (dispatch) => {
     dispatch({
       type: AUTH_ERROR,
     });
+    dispatch(setAlert("logout fail", "danger"));
   }
 };
 export const loadUser = () => async (dispatch) => {

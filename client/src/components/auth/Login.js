@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { googlelogin, githublogin  } from "../../actions/auth";
+import { googlelogin, githublogin } from "../../actions/auth";
 //import {facebooklogin} from "../../actions/auth";
-const Login = ({ setAlert, googlelogin, githublogin, facebooklogin }) => {
+const Login = ({ googlelogin, githublogin, facebooklogin }) => {
   const googleAuth = () => {
     googlelogin();
   };
@@ -44,12 +44,10 @@ const Login = ({ setAlert, googlelogin, githublogin, facebooklogin }) => {
 Login.propTypes = {
   googlelogin: PropTypes.func.isRequired,
   githublogin: PropTypes.func.isRequired,
- // facebooklogin: PropTypes.func.isRequired,
+  // facebooklogin: PropTypes.func.isRequired,
 };
 
-export default connect(null, { googlelogin, githublogin })(
-  Login
-);
+export default connect(null, { googlelogin, githublogin })(Login);
 // export default connect(null, { googlelogin, githublogin, facebooklogin })(
 //   Login
 // );
