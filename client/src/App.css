@@ -5,7 +5,6 @@
 
   .hide-sm {
     display: none;
-    
   }
 
   /* Text Styles */
@@ -22,9 +21,6 @@
   }
 
   /* Navbar */
-
-
-
 
   /* Profiles Page */
   .profile {
@@ -71,7 +67,7 @@
     padding: 0.3rem 0.4rem;
   }
 }
-.hide-sm{
+.hide-sm {
   font-weight: bold;
 }
 .alert {
@@ -113,35 +109,31 @@
   display: inline-block;
 }
 .container {
-
   margin: 2rem;
   padding: 2rem;
   text-align: center;
-  border:1px solid black;
+  border: 1px solid black;
   min-height: 85vh;
 }
 .logincontainer {
-
   margin: 2rem;
   padding: 2rem;
-  border:1px solid black;
-  
+  border: 1px solid black;
 }
 .maincontainer {
   margin: auto;
   overflow: hidden;
   margin-top: 6vh;
-  border:0px solid black;
-  
+  border: 0px solid black;
+
   height: 94vh;
-  
 }
 .navbar {
   display: block;
   text-align: center;
   height: 7vh;
-  background-color: 		#FF8C00;
-  color:#333
+  background-color: #ff8c00;
+  color: #333;
 }
 .navbar ul {
   text-align: center;
@@ -152,65 +144,61 @@
   display: none;
 }
 
-
 .button {
   font-family: Akzidenz Grotesk BQ Light, Helvetica;
   color: #42494f;
   font-size: 16px;
   outline: none;
   border: initial;
-  background-color: 	#FFA500;
+  background-color: #ffa500;
   padding: 10px;
 
-border-radius: 50%;
-
- 
+  border-radius: 50%;
 }
-.button:hover{
-  background-color: #4CAF50; /* Green */
+.button:hover {
+  background-color: #4caf50; /* Green */
   color: white;
 }
 
 div.googlelogo {
   height: 40px;
   width: 40px;
- 
- background-size: contain;
-   background-image: url(https://webassets.mongodb.com/_com_assets/cms/google_logo_button-k3uhmqncx5.svg);
-  display:inline-block;
+
+  background-size: contain;
+  background-image: url(https://webassets.mongodb.com/_com_assets/cms/google_logo_button-k3uhmqncx5.svg);
+  display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
 }
 div.githublogo {
   height: 40px;
   width: 40px;
- 
+
   background-image: url(https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png);
   background-size: contain;
-  display:inline-block;
+  display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
 }
 div.facebooklogo {
-
   height: 40px;
   width: 40px;
- 
+
   background-image: url(https://cdn-icons-png.flaticon.com/512/5968/5968764.png);
   background-size: contain;
-  display:inline-block;
+  display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
- background-size: contain;
- 
-  display:inline-block;
+  background-size: contain;
+
+  display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
 }
 .sign-in-text {
   display: inline-block;
   vertical-align: middle;
-  padding-left:2vh;
+  padding-left: 2vh;
   padding-right: 2vh;
 }
 

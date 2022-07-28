@@ -1,8 +1,10 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const User = require("../models/User");
-const GithubStrategy=require("passport-github2").Strategy;
-const FacebookStrategy=require("passport-facebook").Strategy;
+const GithubStrategy = require("passport-github2").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
+const { Octokit } = require("octokit");
+
 module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(
@@ -12,21 +14,36 @@ module.exports = function (passport) {
         callbackURL: "/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
+        const email = profile.emails[0].value;
         const newUser = {
-          authId: profile.id,
+          googleId: profile.id,
+          githubId: "",
           displayName: profile.displayName,
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
+          emailId: email,
         };
+
         try {
-          let user = await User.findOne({ authId: profile.id });
-          if (user) {
-            //console.log(profile);
-            console.log("old user");
+          let user = await User.findOne({ emailId: profile.emails[0].value });
+
+          if (user && user.googleId) {
+            done(null, user);
+          } else if (!user) {
+            user = await User.create(newUser);
             done(null, user);
           } else {
-            console.log("new user");
-            user = await User.create(newUser);
+            user = await User.findOneAndUpdate(
+              { emailId: email },
+              {
+                $set: {
+                  googleId: profile.id,
+                  firstName: profile.name.givenName,
+                  lastName: profile.name.familyName,
+                },
+              },
+              { new: true }
+            );
             done(null, user);
           }
         } catch (err) {
@@ -43,26 +60,39 @@ module.exports = function (passport) {
         callbackURL: "/auth/github/callback",
       },
       async function (accessToken, refreshToken, profile, done) {
+        const octokit = new Octokit({ auth: accessToken });
+        const emails = await octokit.request("GET /user/emails", {});
+        const email = emails.data[0].email;
+
         const newUser = {
-          authId: profile.id,
+          googleId: "",
+          githubId: profile.id,
           displayName: profile.displayName,
-         
+          firstName: "",
+          lastName: "",
+          emailId: email,
         };
+
         try {
-          let user = await User.findOne({ authId: profile.id });
-          if (user) {
-            //console.log(profile);
-            console.log("old user");
+          let user = await User.findOne({ emailId: email });
+          if (user && user.githubId) {
+            done(null, user);
+          } else if (!user) {
+            user = await User.create(newUser);
+            await user.save();
             done(null, user);
           } else {
-            console.log("new user");
-            user = await User.create(newUser);
+            user = await User.findOneAndUpdate(
+              { emailId: email },
+              { $set: { githubId: profile.id } },
+              { new: true }
+            );
+
             done(null, user);
           }
         } catch (err) {
           console.error(err);
         }
-       
       }
     )
   );
@@ -73,28 +103,7 @@ module.exports = function (passport) {
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         callbackURL: "/auth/facebook/callback",
       },
-      async function (accessToken, refreshToken, profile, done) {
-        const newUser = {
-          authId: profile.id,
-          displayName: profile.displayName,
-         
-        };
-        try {
-          let user = await User.findOne({ authId: profile.id });
-          if (user) {
-           //console.log(profile);
-            console.log("old user");
-            done(null, user);
-          } else {
-            console.log("new user");
-            user = await User.create(newUser);
-            done(null, user);
-          }
-        } catch (err) {
-          console.error(err);
-        }
-       
-      }
+      async function (accessToken, refreshToken, profile, done) {}
     )
   );
   passport.serializeUser((user, done) => {

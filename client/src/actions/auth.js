@@ -14,8 +14,6 @@ export const googlelogin = () => (dispatch) => {
     dispatch({
       type: LOGIN_SUCCESS,
     });
-   
-   
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -25,9 +23,8 @@ export const googlelogin = () => (dispatch) => {
 
     dispatch({
       type: LOGIN_FAIL,
-    }); 
-    dispatch(setAlert("login fail", "danger"))
-
+    });
+    dispatch(setAlert("login fail", "danger"));
   }
 };
 export const githublogin = () => (dispatch) => {
@@ -36,8 +33,6 @@ export const githublogin = () => (dispatch) => {
     dispatch({
       type: LOGIN_SUCCESS,
     });
-   
-   
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -48,8 +43,7 @@ export const githublogin = () => (dispatch) => {
     dispatch({
       type: LOGIN_FAIL,
     });
-    dispatch(setAlert("login fail", "danger"))
-
+    dispatch(setAlert("login fail", "danger"));
   }
 };
 export const facebooklogin = () => (dispatch) => {
@@ -58,8 +52,6 @@ export const facebooklogin = () => (dispatch) => {
     dispatch({
       type: LOGIN_SUCCESS,
     });
-   
-   
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -70,8 +62,7 @@ export const facebooklogin = () => (dispatch) => {
     dispatch({
       type: LOGIN_FAIL,
     });
-    dispatch(setAlert("login fail", "danger"))
-
+    dispatch(setAlert("login fail", "danger"));
   }
 };
 export const logout = () => (dispatch) => {
@@ -93,7 +84,7 @@ export const logout = () => (dispatch) => {
   }
 };
 export const loadUser = () => async (dispatch) => {
-  // check for cookie 
+  // check for cookie
   try {
     const res = await axios.get(
       `${process.env.REACT_APP_SERVER_URL}/auth/current_user`,
@@ -103,7 +94,6 @@ export const loadUser = () => async (dispatch) => {
       type: LOAD_USER,
       payload: res.data,
     });
-    
   } catch (err) {
     const errors = err.response.data.errors;
 

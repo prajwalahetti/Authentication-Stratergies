@@ -13,12 +13,10 @@ import { loadUser } from "./actions/auth";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import NavBar from "./components/layout/NavBar";
 const App = () => {
-
-
   useEffect(() => {
-    const fetchUser=()=>{
+    const fetchUser = () => {
       store.dispatch(loadUser());
-     }
+    };
     return () => {
       fetchUser();
     };
@@ -26,12 +24,10 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-       
-          <Alert />
-          <NavBar/>
-          <div className="maincontainer">
+        <Alert />
+        <NavBar />
+        <div className="maincontainer">
           <Routes>
-            
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
